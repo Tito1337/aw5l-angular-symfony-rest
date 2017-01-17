@@ -1,0 +1,45 @@
+<div *ngIf="article">
+  <h2 class="page-header">Détails de l'article {{article.id}}</h2>
+  <div class="form-horizontal">
+    <div class="form-group">
+      <label for="articleTitle" class="col-sm-2 control-label">Titre:</label>
+      <div class="col-sm-10">
+        <input [(ngModel)]="article.title" id="articleTitle" class="form-control" />
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="articleContent" class="col-sm-2 control-label">Contenu:</label>
+      <div class="col-sm-10">
+        <textarea [(ngModel)]="article.content" id="articleContent" class="form-control" rows=10></textarea>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="articleAuteur" class="col-sm-2 control-label">Auteur:</label>
+      <div class="col-sm-10">
+        <select [(ngModel)]="article.auteur.id" id="articleAuteur" class="form-control">
+          <option *ngFor="let auteur of allAuteurs" [value]="auteur.id">
+            {{auteur.prenom}} {{auteur.nom}}
+          </option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <button (click)="save()" class="btn btn-primary">
+          <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Enregistrer
+        </button>
+
+        <button (click)="delete()" class="btn btn-danger">
+          <span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Supprimer cet article
+        </button>
+
+        <button (click)="goBack()" class="btn btn-default">
+          <span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span> Annuler
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,39 @@
+<div *ngIf="auteur">
+  <h2 class="page-header">Détails de l'auteur {{auteur.id}}</h2>
+  <div class="form-horizontal">
+    <div class="form-group">
+      <label for="auteurPrenom" class="col-sm-2 control-label">Prénom:</label>
+      <div class="col-sm-10">
+        <input [(ngModel)]="auteur.prenom" id="auteurPrenom" />
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="auteurNom" class="col-sm-2 control-label">Nom:</label>
+      <div class="col-sm-10">
+        <input [(ngModel)]="auteur.nom" id="auteurNom" />
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="auteurEmail" class="col-sm-2 control-label">Email:</label>
+      <div class="col-sm-10">
+        <input [(ngModel)]="auteur.email" id="auteurEmail" />
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <button (click)="save()" class="btn btn-primary">
+          <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Enregistrer
+        </button>
+
+        <button (click)="delete()" class="btn btn-danger">
+          <span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Supprimer cet auteur
+        </button>
+
+        <button (click)="goBack()" class="btn btn-default">
+          <span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span> Annuler
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
